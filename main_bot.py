@@ -33,7 +33,17 @@ bot = discord.Client()
 
 @bot.event
 async def on_ready():
-    print('Bot is online You can use it on your server now...')
-    
+    print('Bot is online...')
 
+
+@bot.event
+async def on_message(msg):
+    
+    if msg.author == bot.user:    # done
+        pass
+    
+    
+    elif msg.startswith('.check'):
+        await msg.channel.send('**```working```**')
+    
 bot.run(TOKEN)
