@@ -33,7 +33,7 @@ bot = discord.Client()
 
 @bot.event
 async def on_ready():
-    print('Bot is online...')
+    print('Bot is online You can use it on your server now...')
     
 
 bot.run(TOKEN)
