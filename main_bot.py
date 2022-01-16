@@ -12,13 +12,7 @@ import discord
 from discord import Colour as c
 from discord.utils import get
 
-import sqlite3 as sql
-from time import sleep as wait
-
-
-# import Data.cmds_info as ci
-# from Data.quantam import *
-# from Data.quantam import showTable
+from webServer import wakeUp
 
 print('Done')
 
@@ -45,5 +39,8 @@ async def on_message(msg):
     
     elif msg.content.startswith('.check'):
         await msg.channel.send('**```Perfectly working```**')
-    
+
+
+wakeUp()
+
 bot.run(TOKEN)
