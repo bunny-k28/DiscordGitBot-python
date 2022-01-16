@@ -43,7 +43,7 @@ async def on_message(msg):
         pass
     
     
-    elif msg.startswith('.check'):
-        await msg.channel.send('**```working```**')
+    elif msg.content.startswith('.check'):
+        await msg.channel.send('**```Perfectly working```**')
     
 bot.run(TOKEN)
