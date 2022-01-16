@@ -12,8 +12,8 @@ import discord
 from discord import Colour as c
 from discord.utils import get
 
-# import sqlite3 as sql
-# from time import sleep as wait
+import sqlite3 as sql
+from time import sleep as wait
 
 
 # import Data.cmds_info as ci
