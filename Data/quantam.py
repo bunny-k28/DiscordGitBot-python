@@ -40,6 +40,19 @@ all_channels = ['🎫-general', '🔡-meeting-plans', '🎈-off-topic',
                 '🧬-commits', '📂-bot-contribution']
 
 
+server_rules = ["Follow:-\n-Server Rules: #🧾-rules \n-Server Roles: #🧮-roles \n-Server's code of conduct: 📠-code-of-conduct", 
+                'Verify yourself using `.verify` command in #✌🏼-verify-yourself',
+                'Respect staff members and listen to their instruction', 
+                'Do not provide or request help on projects that may break laws, breach terms of services, or are malicious or inappropriate.', 
+                'Do not post unapproved advertising.', 
+                "Keep discussions relevant to the channel topic. Each channel's description tells you the topic.", 
+                "Use all commands in command supported channels only. Don't spam other channels with bot commands.", 
+                'Do not help with ongoing exams. When helping with homework, help people learn how to do the assignment without doing it for them.', 
+                'Change your server profile according to your college detail.', 
+                'Teachers are requested to remove/ban a student using bot command.'
+                ]
+
+
 # backend functions
 def formatData(data: list, dirt: str, replace_with=None):    # done
     
