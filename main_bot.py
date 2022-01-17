@@ -49,6 +49,20 @@ async def on_message(msg):
         await msg.channel.send(embed=mbed)
 
 
+    elif msg.content.startswith('.help'):
+        with open('Data\\git_help_cmds.txt', 'r') as git_help_file:
+            file_data = git_help_file.read()
+
+        await msg.channel.send(file_data)
+
+
+    elif msg.content.startswith('.commands'):
+        with open('Data\\bot_cmds.txt', 'r') as bot_cmd_file:
+            file_data = bot_cmd_file.read()
+
+        await msg.channel.send(file_data)
+
+
     elif msg.content.startswith('.cc'):  # done
         limit = int(msg.content.replace('.cc ', '')) + 1
         
