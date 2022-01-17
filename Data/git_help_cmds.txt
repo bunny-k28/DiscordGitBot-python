@@ -12,10 +12,9 @@ GIT CONFIG:
 STARTING A PROJECT:
 ------------------
 
-1. git init [project name/path] -> If [project name] is provided, Git will
-create a new directory name [project name] and will initialize a
-repository inside it. If [project name] is not provided, then a new
-repository is initialized in the current directory.
+1. git init [project name/path] -> If [project name] is provided, Git will create a new directory name [project name] 
+and will initialize a repository inside it. If [project name] is not provided, then a new repository is initialized 
+in the current directory.
 
 2. git clone [project/repo URL] -> Downloads a project with the entire history from the remote repository
 
@@ -23,15 +22,58 @@ repository is initialized in the current directory.
 DAY-TO-DAY WORK:
 ---------------
 
-1. git status
+1. git status -> Displays the status of your working directory. Options include new, staged, and modified files.
 
-2. git add [file name]
+2. git add [file name] -> Add a file to the staging area. Use '.' in place of the full file path to add all changed 
+files from the current directory
 
-3. git checkout -- [file name]
+3. git checkout -- [file name] -> Discard changes in working directory. This operation is unrecoverable.
 
-4. git reset [file name]
+4. git reset [file name] -> Revert your repository to a previous known working state.
 
-5. git commit -m <"commit message">
+5. git commit -m ["commit message"] -> Create a new commit from changes added to the staging area. 
+The commit must have a message!
 
 
+REVIEW YOUR WORK:
+----------------
+
+1. git log -> List commit history of current branch in elaborate form
+
+2. git log --oneline -> An overview with reference labels in One commit per line.
+
+
+GIR BRANCHING MODEL:
+-------------------
+
+1. git branch -a -> List all local branches in repository. With -a: show all branches
+(with remote).
+
+2. git branch [branch_name] -> Create new branch, referencing the current HEAD.
+
+3. git checkout -b [branch name] -> Create new branch, referencing the current HEAD.
+
+4. git merge [from name] -> Join specified [from name] branch into your current branch (the one
+you are on currently).
+
+5. git branch -d [name] -> Remove selected branch, if it is already merged into any other.
+-D instead of -d forces deletion
+
+SYNCHRONIZING REPOSITORIES:
+--------------------------
+
+1. git fetch -> Fetch changes from the remote, but not update tracking branches.
+
+2. git pull -> Fetch changes from the remote and merge current branch with its upstream.
+
+3. git push -> Push local changes to the remote. Use --tags to push tags.
+
+
+IGNORING FILE:
+
+step 1:- Create a file in the repo/project with name .gitignore
+
+step 2:- write the file name you don't want to track.
+
+[ NOTE: if there are more thann 1 file(s) which you don't want to track then write each file name in each new line. ]
 ```**
