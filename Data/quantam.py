@@ -36,14 +36,23 @@ all_cmds = []
 
 
 # backend functions
-def formatData(data: list, dirt: str):    # done
+def formatData(data: list, dirt: str, replace_with: None):    # done
     
-    for index, value in enumerate(data):
-        if dirt in value:
-            data[index] = value.replace(dirt, '')
-            
-        else:
-            pass
+    if replace_with is None:
+        for index, value in enumerate(data):
+            if dirt in value:
+                data[index] = value.replace(dirt, '')
+                
+            else:
+                pass
+
+    else:
+        for index, value in enumerate(data):
+            if dirt in value:
+                data[index] = value.replace(dirt, replace_with)
+                
+            else:
+                pass
 
 
 def createID(id_len: int, dtype: str):    # done
