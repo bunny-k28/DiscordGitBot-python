@@ -44,20 +44,25 @@ async def on_message(msg):
         pass
 
 
-    elif msg.content == '.ping':
+    elif msg.content == '.ping':  # done
         mbed = lc_Embed("**Ping!**", f'**```Current bot ping: {round(bot.latency * 1000)}ms```**')
         await msg.channel.send(embed=mbed)
 
 
-    elif msg.content.startswith('.cc'):
-        limit = int(msg.content.replace('.cc ', ''))
+    elif msg.content.startswith('.cc'):  # done
+        limit = int(msg.content.replace('.cc ', '')) + 1
         
-        await msg.content.purge(limit=limit)        
+        await msg.channel.purge(limit=limit)        
 
 
-    elif msg.content == '$restart$':  # admin command
-        with open('Data\\admins.txt', 'r') as admins_file:
-            admins = admins_file.readlines()
+    elif msg.content == '$restart$':  # done(admin command)
+        try:
+            with open('Data\\admins.txt', 'r', encoding='utf-8') as admins_file:
+                admins = admins_file.readlines()
+                
+        except IOError as IOE:
+            mbed = error_Embed(msg, IOE)
+            await bot.get_channel(932192413026512936).send(embed=mbed)
 
         formatData(admins, '\n')
 
