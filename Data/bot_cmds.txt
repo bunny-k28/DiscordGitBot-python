@@ -1,0 +1,12 @@
+**Bot Commands:-**
+
+```
+1. .commands -> display all bot commands |OR| .command <specify bot command> -> display detailed info about specified bot command
+
+2. .help -> display all git commands(for git bash) |OR| .help <specify git command> -> display detailed info about specified git command
+
+3. .ping -> display the bot ping
+
+4. .cc <int> -> deletes the specified no. of messages from the channel
+
+```
