@@ -40,7 +40,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(msg):
-    if msg.content.startswith('.'):
+    if (msg.content.startswith('.')) or (msg.content == '$reboot$'):
         try:
             _cmd = msg.content.replace('.', '')
         except Exception:
@@ -59,11 +59,14 @@ async def on_message(msg):
 
 
             elif msg.content.startswith('.help'):
-                with open('Data\\git_help_cmds.txt', 'r') as git_help_file:
-                    file_data = git_help_file.read()
+                with open('Data\\git_help_cmds.txt', 'r') as git_help_file1:
+                    file_data1 = git_help_file1.read()
 
-                await msg.channel.send(file_data)
+                with open('Data\\git_help_cmds2.txt', 'r') as git_help_file2:
+                    file_data2 = git_help_file2.read()
 
+                await msg.channel.send(f'{file_data1}\n{file_data2}')
+                
 
             elif msg.content.startswith('.commands'):
                 with open('Data\\bot_cmds.txt', 'r') as bot_cmd_file:
