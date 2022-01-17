@@ -36,6 +36,10 @@ all_cmds = ['ping', 'cc',
             'help', 'commands']
 
 
+all_channels = ['🎫-general', '🔡-meeting-plans', '🎈-off-topic', 
+                '🧬-commits', '📂-bot-contribution']
+
+
 # backend functions
 def formatData(data: list, dirt: str, replace_with=None):    # done
     
