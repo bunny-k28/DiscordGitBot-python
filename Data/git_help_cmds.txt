@@ -1,0 +1,37 @@
+**Git bash Commands:-**
+
+**```
+GIT CONFIG:
+----------
+
+1. git config --global user.name <"Your Name"> -> Set the name that will be attached to your commits and tags.
+
+2. git config --global user.email <"Your Email"> -> Set the e-mail address that will be attached to your commits and tags.
+
+
+STARTING A PROJECT:
+------------------
+
+1. git init [project name/path] -> If [project name] is provided, Git will
+create a new directory name [project name] and will initialize a
+repository inside it. If [project name] is not provided, then a new
+repository is initialized in the current directory.
+
+2. git clone [project/repo URL] -> Downloads a project with the entire history from the remote repository
+
+
+DAY-TO-DAY WORK:
+---------------
+
+1. git status
+
+2. git add [file name]
+
+3. git checkout -- [file name]
+
+4. git reset [file name]
+
+5. git commit -m <"commit message">
+
+
+```**
