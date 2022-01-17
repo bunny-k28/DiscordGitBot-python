@@ -32,7 +32,8 @@ def error_Embed(_cmd: str, _error: str):
     return mbed
 
 
-all_cmds = []
+all_cmds = ['ping', 'cc', 
+            'help', 'commands']
 
 
 # backend functions
