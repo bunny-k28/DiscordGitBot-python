@@ -36,7 +36,7 @@ all_cmds = []
 
 
 # backend functions
-def formatData(data: list, dirt: str, replace_with: None):    # done
+def formatData(data: list, dirt: str, replace_with=None):    # done
     
     if replace_with is None:
         for index, value in enumerate(data):
