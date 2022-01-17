@@ -1,4 +1,5 @@
 from discord import Embed, Colour
+import random as r
 
 
 def lc_Embed(_title: str, _desc: str):
@@ -29,3 +30,42 @@ def error_Embed(_cmd: str, _error: str):
     )
     
     return mbed
+
+
+all_cmds = []
+
+
+# backend functions
+def formatData(data: list, dirt: str):    # done
+    
+    for index, value in enumerate(data):
+        if dirt in value:
+            data[index] = value.replace(dirt, '')
+            
+        else:
+            pass
+
+
+def createID(id_len: int, dtype: str):    # done
+    
+    _id = dtype
+    
+    for i in range(id_len):
+        _id += str(r.randint(a=0, b=9))
+        
+    return _id
+
+
+def checkCMD(command):    # done
+    
+    validity = False
+    
+    for cmd in all_cmds:
+        if command.startswith(cmd):
+            validity = True
+            break
+            
+        else:
+            pass
+        
+    return validity
