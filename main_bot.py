@@ -37,7 +37,9 @@ async def on_ready():
 async def on_message(mesg):
     
     msg = mesg.content
-    msg_ch = mesg.channel
+    channel = mesg.channel
+    author = mesg.author
+    
     
     if (msg.startswith('.')) or (msg == '$reboot$'):
         try:
@@ -48,25 +50,25 @@ async def on_message(mesg):
 
         if (checkCMD(_cmd) is True) or (msg == '$reboot$'):
 
-            if str(msg_ch.name) in all_channels:
+            if str(channel.name) in all_channels:
                 mbed = bc_Embed('**channel not suppoerted for commands**', f'**Rule** :eight: \n{server_rules[6]}')
-                mbed.set_author(name=msg.author, icon_url=msg.author.avatar_url)
+                mbed.set_author(name=author, icon_url=author.avatar_url)
 
-                await msg_ch.send(embed=mbed)
+                await channel.send(embed=mbed)
                 wait(5.0)
-                await msg_ch.purge(limit=2)
+                await channel.purge(limit=2)
 
             else:
 
                 error_channel = bot.get_channel(932192413026512936)
 
-                if (msg.author == bot.user) or (str(msg.author) == 'MEE6#4876'):
+                if (author == bot.user) or (str(author) == 'MEE6#4876'):
                     pass
 
 
                 elif msg == '.ping':  # done
                     mbed = lc_Embed("**Ping!**", f'**```Current bot ping: {round(bot.latency * 1000)}ms```**')
-                    await msg_ch.send(embed=mbed)
+                    await channel.send(embed=mbed)
 
 
                 elif msg.startswith('.help'):  # bugs
@@ -88,7 +90,7 @@ async def on_message(mesg):
                             await error_channel.send(embed=mbed)
 
                         try:
-                            await msg_ch.send(f'{file_data1}\n{file_data2}')
+                            await channel.send(f'{file_data1}\n{file_data2}')
 
                         except Exception as E:
                             mbed = error_Embed(msg, E)
@@ -99,13 +101,13 @@ async def on_message(mesg):
                     with open('Data\\bot_cmds.txt', 'r') as bot_cmd_file:
                         file_data = bot_cmd_file.read()
 
-                    await msg_ch.send(file_data)
+                    await channel.send(file_data)
 
 
                 elif msg.startswith('.cc'):  # done
                     limit = int(msg.replace('.cc ', '')) + 1
 
-                    await msg_ch.purge(limit=limit)
+                    await channel.purge(limit=limit)
 
 
                 elif msg == '$reboot$':  # done(admin command)
@@ -119,10 +121,10 @@ async def on_message(mesg):
 
                     formatData(admins, '\n')
 
-                    member = str(msg.author)
+                    member = str(author)
 
                     if member in admins:
-                        await msg_ch.send(f'**```Command Given By: {member}\nPermission: Granted\nAction: Restarting .Git bot...```**')
+                        await channel.send(f'**```Command Given By: {member}\nPermission: Granted\nAction: Restarting .Git bot...```**')
 
                         try:
                             os.system('py .\main_bot.py')
@@ -133,18 +135,18 @@ async def on_message(mesg):
                             await error_channel.send(embed=mbed)
 
                     else:
-                        await msg_ch.send(f'**```Command Given By: {member}\nPermission: Denied```**')
+                        await channel.send(f'**```Command Given By: {member}\nPermission: Denied```**')
                         wait(2.0)
-                        await msg_ch.purge(limit=2)
+                        await channel.purge(limit=2)
 
         else:
-            if (msg.author == bot.user) or (str(msg.author) == 'MEE6#4876'):
+            if (author == bot.user) or (str(author) == 'MEE6#4876'):
                 pass
 
             else:
-                await msg_ch.send(f'**```No such command ->{msg}<-. Use .commands command to see the list of availabe commands```**')
+                await channel.send(f'**```No such command ->{msg}<-. Use .commands command to see the list of availabe commands```**')
                 wait(4.0)
-                await msg_ch.purge(limit=2)
+                await channel.purge(limit=2)
 
     else:
         pass
