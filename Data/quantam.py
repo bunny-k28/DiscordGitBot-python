@@ -105,3 +105,13 @@ def checkCMD(command):    # done
             pass
 
     return validity
+
+
+def getCmdInfo(query):
+    help_dict = {}
+    
+    if query in help_dict:
+        return help_dict[query]
+    
+    else:
+        return "No such command"

@@ -71,33 +71,34 @@ async def on_message(mesg):
                     await channel.send(embed=mbed)
 
 
-                elif msg.startswith('.help'):  # bugs
-                    git_cmd = msg.replace(".help")
+                elif msg.startswith('.help'):  # done
+                    try:
+                        file_num = 0
 
-                    if len(git_cmd) > 0:
-                        pass
+                        while file_num < len(os.listdir('Data\\GitHelpFiles')):
+                            with open(f'Data\\GitHelpFiles\\git_help_cmds{file_num}.txt', 'r') as file:
+                                file_data = file.read()
+                            try:
+                                await channel.send(f'{file_data}')
 
-                    else:
-                        try:
-                            with open('Data\\GitHelpFiles\\git_help_cmds.txt', 'r') as git_help_file1:
-                                file_data1 = git_help_file1.read()
+                            except Exception as E:
+                                mbed = error_Embed(mesg, E)
+                                await error_channel.send(embed=mbed)
 
-                            with open('Data\\GitHelpFiles\\git_help_cmds2.txt', 'r') as git_help_file2:
-                                file_data2 = git_help_file2.read()
+                            file_num += 1
 
-                        except IOError as IOE:
-                            mbed = error_Embed(msg, IOE)
-                            await error_channel.send(embed=mbed)
-
-                        try:
-                            await channel.send(f'{file_data1}\n{file_data2}')
-
-                        except Exception as E:
-                            mbed = error_Embed(msg, E)
-                            await error_channel.send(embed=mbed)
+                    except IOError as IOE:
+                        mbed = error_Embed(mesg, IOE)
+                        await error_channel.send(embed=mbed)                   
 
 
                 elif msg.startswith('.commands'):  # done
+                    query_cmd = msg.replace('.commands ', '')
+                    
+                    if len(query_cmd) > 0:
+                        getCmdInfo(query_cmd)
+                    
+                    
                     with open('Data\\bot_cmds.txt', 'r') as bot_cmd_file:
                         file_data = bot_cmd_file.read()
 
@@ -116,7 +117,7 @@ async def on_message(mesg):
                             admins = admins_file.readlines()
 
                     except IOError as IOE:
-                        mbed = error_Embed(msg, IOE)
+                        mbed = error_Embed(mesg, IOE)
                         await error_channel.send(embed=mbed)
 
                     formatData(admins, '\n')
@@ -131,7 +132,7 @@ async def on_message(mesg):
 
                         except OSError as OSE:
 
-                            mbed = error_Embed(msg, OSE)
+                            mbed = error_Embed(mesg, OSE)
                             await error_channel.send(embed=mbed)
 
                     else:
