@@ -1,0 +1,21 @@
+**```
+SYNCHRONIZING REPOSITORIES:
+--------------------------
+
+1. git fetch -> Fetch changes from the remote, but not update tracking branches.
+
+2. git pull -> Fetch changes from the remote and merge current branch with its upstream.
+
+3. git push -> Push local changes to the remote. Use --tags to push tags.
+
+
+IGNORING FILE:
+-------------
+
+step 1:- Create a file in the repo/project with name .gitignore
+
+step 2:- write the file name you don't want to track.
+
+[ NOTE: if there are more thann 1 file(s) which you don't want to track then write each file name in each new line. ]
+
+```**

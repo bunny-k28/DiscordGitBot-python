@@ -1,4 +1,12 @@
 **```
+REVIEW YOUR WORK:
+----------------
+
+1. git log -> List commit history of current branch in elaborate form
+
+2. git log --oneline -> An overview with reference labels in One commit per line.
+
+
 GIR BRANCHING MODEL:
 -------------------
 
@@ -15,21 +23,4 @@ you are on currently).
 5. git branch -d [name] -> Remove selected branch, if it is already merged into any other.
 -D instead of -d forces deletion
 
-SYNCHRONIZING REPOSITORIES:
---------------------------
-
-1. git fetch -> Fetch changes from the remote, but not update tracking branches.
-
-2. git pull -> Fetch changes from the remote and merge current branch with its upstream.
-
-3. git push -> Push local changes to the remote. Use --tags to push tags.
-
-
-IGNORING FILE:
-
-step 1:- Create a file in the repo/project with name .gitignore
-
-step 2:- write the file name you don't want to track.
-
-[ NOTE: if there are more thann 1 file(s) which you don't want to track then write each file name in each new line. ]
-```**
+**```

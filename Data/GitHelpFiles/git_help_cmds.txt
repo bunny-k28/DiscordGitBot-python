@@ -18,28 +18,4 @@ in the current directory.
 
 2. git clone [project/repo URL] -> Downloads a project with the entire history from the remote repository
 
-
-DAY-TO-DAY WORK:
----------------
-
-1. git status -> Displays the status of your working directory. Options include new, staged, and modified files.
-
-2. git add [file name] -> Add a file to the staging area. Use '.' in place of the full file path to add all changed 
-files from the current directory
-
-3. git checkout -- [file name] -> Discard changes in working directory. This operation is unrecoverable.
-
-4. git reset [file name] -> Revert your repository to a previous known working state.
-
-5. git commit -m ["commit message"] -> Create a new commit from changes added to the staging area. 
-The commit must have a message!
-
-
-REVIEW YOUR WORK:
-----------------
-
-1. git log -> List commit history of current branch in elaborate form
-
-2. git log --oneline -> An overview with reference labels in One commit per line.
-
 ```*
