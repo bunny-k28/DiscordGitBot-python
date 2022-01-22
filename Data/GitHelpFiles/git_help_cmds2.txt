@@ -23,4 +23,4 @@ you are on currently).
 5. git branch -d [name] -> Remove selected branch, if it is already merged into any other.
 -D instead of -d forces deletion
 
-**```
+```**
