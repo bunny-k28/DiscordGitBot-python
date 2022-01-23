@@ -111,7 +111,9 @@ def getCmdInfo(query):
     help_dict = {}
     
     if query in help_dict:
-        return help_dict[query]
+        mbed = bc_Embed(f'**Query: ``{query}``**', f'**```{help_dict[query]}```**')
+        return mbed
     
     else:
-        return "No such command"
+        mbed = lc_Embed(f'**Query: ``{query}``**', '**```No such command```**')
+        return mbed
