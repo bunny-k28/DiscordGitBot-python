@@ -1,7 +1,7 @@
 **Bot Commands:-**
 
 **```
-1. .commands -> display all bot commands |OR| .command <specify bot command> -> display detailed info about specified bot command
+1. .commands -> display all bot commands |OR| .commands <query command> -> display detailed info about specified bot command
 
 2. .help -> display all git commands(for git bash)
 
