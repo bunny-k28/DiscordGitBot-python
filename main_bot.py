@@ -71,7 +71,7 @@ async def on_message(mesg):
                     await channel.send(embed=mbed)
 
 
-                elif msg.startswith('.help'):  # done
+                elif msg == '.help':  # done
                     try:
                         file_num = 0
 
@@ -93,17 +93,25 @@ async def on_message(mesg):
 
 
                 elif msg.startswith('.commands'):  # done
-                    query_cmd = msg.replace('.commands ', '')
-                    
-                    if len(query_cmd) > 0:
-                        getCmdInfo(query_cmd)
-                    
-                    
-                    with open('Data\\bot_cmds.txt', 'r') as bot_cmd_file:
-                        file_data = bot_cmd_file.read()
+                    try:
+                        _, query_cmd = msg.split(' ')
+                        
+                        if len(query_cmd) > 0:
+                            cmd_info = getCmdInfo(query_cmd)
+                            
+                            await channel.send(embed=cmd_info)
+                        
+                        else:
+                            with open('Data\\bot_cmds.txt', 'r') as bot_cmd_file:
+                                file_data = bot_cmd_file.read()
 
-                    await channel.send(file_data)
+                            await channel.send(file_data)
+                        
+                    except Exception:
+                        mbed = lc_Embed('**Missing Argument**', '```One argumennt is required to show the results.\nFor example:-\n\t\t.commands cc```')
 
+                        await channel.send(embed=mbed)
+                        
 
                 elif msg.startswith('.cc'):  # done
                     limit = int(msg.replace('.cc ', '')) + 1
@@ -112,19 +120,19 @@ async def on_message(mesg):
 
 
                 elif msg == '$reboot$':  # done(admin command)
-                    try:
-                        with open('Data\\admins.txt', 'r', encoding='utf-8') as admins_file:
-                            admins = admins_file.readlines()
+                    # try:
+                    with open(file='Data\\admins.txt', mode='r', encoding='utf-8') as admins_file:
+                        _admins = admins_file.readlines()
 
-                    except IOError as IOE:
-                        mbed = error_Embed(mesg, IOE)
-                        await error_channel.send(embed=mbed)
+                    # except IOError as IOE:
+                    #     mbed = error_Embed(mesg, IOE)
+                    #     await error_channel.send(embed=mbed)
 
-                    formatData(admins, '\n')
+                    formatData(_admins, '\n')
 
                     member = str(author)
 
-                    if member in admins:
+                    if member in _admins:
                         await channel.send(f'**```Command Given By: {member}\nPermission: Granted\nAction: Restarting .Git bot...```**')
 
                         try:
